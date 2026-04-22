@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Botetourt County Transparency Dashboard</title>
+  <style>
+    /* ── Reset & base ───────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:   #1a3a5c;
+      --gold:   #c8a84b;
+      --light:  #f4f6f9;
+      --white:  #ffffff;
+      --text:   #222;
+      --muted:  #5a6472;
+      --border: #d0d7e0;
+      --new:    #1e7e34;
+      --radius: 8px;
+      --shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ─────────────────────────────────────────────────────────── */
+    header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+    header h1 { font-size: 1.4rem; font-weight: 700; }
+    header p  { font-size: .85rem; opacity: .8; }
+    .badge {
+      background: var(--gold);
+      color: #1a1a1a;
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .25rem .6rem;
+      border-radius: 99px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      main { grid-template-columns: 1fr 1fr; }
+      .full { grid-column: 1 / -1; }
+    }
+
+    /* ── Cards ───────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.5rem;
+    }
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--blue);
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    /* ── Budget bar chart ────────────────────────────────────────────────── */
+    .budget-meta { font-size: .9rem; color: var(--muted); margin-bottom: 1rem; }
+    .budget-meta strong { color: var(--text); }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .6rem;
+      font-size: .85rem;
+    }
+    .bar-label  { width: 160px; flex-shrink: 0; }
+    .bar-track  { flex: 1; background: var(--light); border-radius: 4px; height: 18px; overflow: hidden; }
+    .bar-fill   { height: 100%; background: var(--blue); border-radius: 4px; transition: width .4s ease; }
+    .bar-pct    { width: 40px; text-align: right; color: var(--muted); }
+
+    /* ── Officials grid ──────────────────────────────────────────────────── */
+    .officials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: .75rem;
+    }
+    .official-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: .75rem 1rem;
+      text-align: center;
+    }
+    .official-card .name     { font-weight: 700; font-size: .9rem; }
+    .official-card .district { font-size: .78rem; color: var(--muted); margin-top: .2rem; }
+    .official-card .role     { font-size: .72rem; color: var(--gold); font-weight: 600;
+                               text-transform: uppercase; letter-spacing: .03em; margin-top: .3rem; }
+
+    /* ── Document list ───────────────────────────────────────────────────── */
+    .doc-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+    .filter-btn {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: .25rem .8rem;
+      font-size: .8rem;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    .doc-list { list-style: none; }
+    .doc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .875rem;
+    }
+    .doc-item:last-child { border-bottom: none; }
+    .doc-type-pill {
+      flex-shrink: 0;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: .15rem .5rem;
+      border-radius: 99px;
+      background: var(--light);
+      color: var(--muted);
+    }
+    .doc-type-pill.budget_document { background: #dbeafe; color: #1d4ed8; }
+    .doc-type-pill.agenda          { background: #dcfce7; color: #166534; }
+    .doc-type-pill.minutes         { background: #fef9c3; color: #854d0e; }
+    .doc-type-pill.audit_report    { background: #fce7f3; color: #9d174d; }
+    .doc-type-pill.news_alert      { background: #ffedd5; color: #9a3412; }
+
+    .doc-new-badge {
+      flex-shrink: 0;
+      font-size: .68rem;
+      font-weight: 700;
+      background: var(--new);
+      color: #fff;
+      padding: .15rem .45rem;
+      border-radius: 99px;
+    }
+    .doc-title { flex: 1; }
+    .doc-source { font-size: .75rem; color: var(--muted); }
+
+    /* ── Changelog ───────────────────────────────────────────────────────── */
+    .changelog-list { list-style: none; }
+    .changelog-entry {
+      padding: .7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .875rem;
+    }
+    .changelog-entry:last-child { border-bottom: none; }
+    .changelog-ts { font-size: .75rem; color: var(--muted); margin-bottom: .3rem; }
+    .changelog-count { font-weight: 700; color: var(--new); }
+    .changelog-items { margin-top: .4rem; padding-left: 1rem; }
+    .changelog-items li { font-size: .8rem; color: var(--muted); margin-bottom: .2rem; }
+
+    /* ── Sources ─────────────────────────────────────────────────────────── */
+    .sources-list { list-style: none; }
+    .sources-list li {
+      padding: .4rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .875rem;
+    }
+    .sources-list li:last-child { border-bottom: none; }
+
+    /* ── Footer ──────────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      font-size: .8rem;
+      color: var(--muted);
+      padding: 1rem;
+    }
+
+    /* ── Loading / error states ──────────────────────────────────────────── */
+    .state-msg {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem;
+      font-size: .9rem;
+    }
+    .error-msg { color: #b91c1c; }
+
+    /* ── Updated timestamp ───────────────────────────────────────────────── */
+    #last-updated {
+      font-size: .8rem;
+      color: rgba(255,255,255,.7);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Botetourt County Transparency Dashboard</h1>
+    <p>Government spending, budgets & elected officials — community-maintained</p>
+  </div>
+  <div style="text-align:right">
+    <div class="badge">Botetourt County, VA</div>
+    <div id="last-updated" style="margin-top:.4rem">Loading…</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Budget Overview -->
+  <div class="card full" id="budget-card">
+    <h2>Budget Overview</h2>
+    <div id="budget-content"><div class="state-msg">Loading budget data…</div></div>
+  </div>
+
+  <!-- Board of Supervisors -->
+  <div class="card full" id="officials-card">
+    <h2>Board of Supervisors</h2>
+    <div id="officials-content"><div class="state-msg">Loading officials…</div></div>
+  </div>
+
+  <!-- Documents -->
+  <div class="card full" id="documents-card">
+    <h2>Documents &amp; Filings</h2>
+    <div class="doc-filters" id="doc-filters"></div>
+    <div id="documents-content"><div class="state-msg">Loading documents…</div></div>
+  </div>
+
+  <!-- Recent Changes -->
+  <div class="card" id="changelog-card">
+    <h2>Recent Changes</h2>
+    <div id="changelog-content"><div class="state-msg">Loading changelog…</div></div>
+  </div>
+
+  <!-- Source Links -->
+  <div class="card" id="sources-card">
+    <h2>Data Sources</h2>
+    <div id="sources-content"><div class="state-msg">Loading sources…</div></div>
+  </div>
+
+</main>
+
+<footer>
+  Data sourced from <a href="https://www.botetourtva.gov" target="_blank" rel="noopener">botetourtva.gov</a>
+  and the <a href="https://www.apa.virginia.gov" target="_blank" rel="noopener">Virginia Auditor of Public Accounts</a>.
+  This is an independent community project.
+</footer>
+
+<script>
+"use strict";
+
+// ── Helpers ──────────────────────────────────────────────────────────────
+
+function esc(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function fmtDate(iso) {
+  if (!iso) return "";
+  try {
+    return new Date(iso).toLocaleString("en-US", {
+      month: "short", day: "numeric", year: "numeric",
+      hour: "numeric", minute: "2-digit", timeZoneName: "short"
+    });
+  } catch { return iso; }
+}
+
+function typeLabel(type) {
+  const map = {
+    budget_document: "Budget",
+    agenda:          "Agenda",
+    minutes:         "Minutes",
+    audit_report:    "Audit",
+    news_alert:      "News",
+  };
+  return map[type] || type;
+}
+
+// ── Render budget ─────────────────────────────────────────────────────────
+
+function renderBudget(budget) {
+  const { fiscal_year, total_budget_millions, education_millions, note, breakdown, source_url } = budget;
+  const rows = breakdown.map(item => `
+    <div class="bar-row">
+      <span class="bar-label">${esc(item.category)}</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${item.percent}%"></div>
+      </div>
+      <span class="bar-pct">${item.percent}%</span>
+      <span style="font-size:.8rem;color:#5a6472;min-width:60px">$${item.millions}M</span>
+    </div>`).join("");
+
+  document.getElementById("budget-content").innerHTML = `
+    <p class="budget-meta">
+      <strong>${esc(fiscal_year)}</strong> — Total budget:
+      <strong>$${total_budget_millions}M</strong> &nbsp;|&nbsp;
+      Education: <strong>$${education_millions}M</strong> &nbsp;|&nbsp;
+      ${esc(note)}
+    </p>
+    ${rows}
+    <p style="margin-top:.75rem;font-size:.8rem">
+      <a href="${esc(source_url)}" target="_blank" rel="noopener">View Finance Department →</a>
+    </p>`;
+}
+
+// ── Render officials ──────────────────────────────────────────────────────
+
+function renderOfficials(officials) {
+  const cards = officials.map(o => `
+    <div class="official-card">
+      <div class="name">${esc(o.name)}</div>
+      <div class="district">${esc(o.district)} District</div>
+      <div class="role">${esc(o.role)}</div>
+    </div>`).join("");
+  document.getElementById("officials-content").innerHTML =
+    `<div class="officials-grid">${cards}</div>`;
+}
+
+// ── Render documents with filter ─────────────────────────────────────────
+
+let allDocuments  = [];
+let activeFilter  = "all";
+
+function renderDocuments() {
+  const docs = activeFilter === "all"
+    ? allDocuments
+    : allDocuments.filter(d => d.type === activeFilter);
+
+  if (!docs.length) {
+    document.getElementById("documents-content").innerHTML =
+      `<div class="state-msg">No documents found for this filter.</div>`;
+    return;
+  }
+
+  const items = docs.map(d => `
+    <li class="doc-item">
+      <span class="doc-type-pill ${esc(d.type)}">${typeLabel(d.type)}</span>
+      <span class="doc-title">
+        <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a>
+        <span class="doc-source"> — ${esc(d.source || "")}</span>
+      </span>
+    </li>`).join("");
+
+  document.getElementById("documents-content").innerHTML =
+    `<ul class="doc-list">${items}</ul>`;
+}
+
+function buildFilters(docs) {
+  const types = ["all", ...new Set(docs.map(d => d.type))];
+  const filtersEl = document.getElementById("doc-filters");
+  filtersEl.innerHTML = types.map(t => `
+    <button class="filter-btn${t === activeFilter ? " active" : ""}"
+            data-type="${esc(t)}">
+      ${t === "all" ? "All" : typeLabel(t)}
+    </button>`).join("");
+
+  filtersEl.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      activeFilter = btn.dataset.type;
+      filtersEl.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderDocuments();
+    });
+  });
+}
+
+// ── Render changelog ──────────────────────────────────────────────────────
+
+function renderChangelog(changelog) {
+  if (!changelog || !changelog.length) {
+    document.getElementById("changelog-content").innerHTML =
+      `<div class="state-msg">No changes recorded yet. Run the scraper to populate.</div>`;
+    return;
+  }
+
+  const entries = changelog.slice(0, 10).map(entry => {
+    const itemList = (entry.items || []).slice(0, 5).map(i =>
+      `<li><a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}</a></li>`
+    ).join("");
+    const more = (entry.items || []).length > 5
+      ? `<li style="font-style:italic">…and ${entry.items.length - 5} more</li>`
+      : "";
+    return `
+      <li class="changelog-entry">
+        <div class="changelog-ts">${fmtDate(entry.timestamp)}</div>
+        <div>
+          <span class="changelog-count">+${entry.new_count} new item${entry.new_count !== 1 ? "s" : ""}</span>
+          detected
+        </div>
+        <ul class="changelog-items">${itemList}${more}</ul>
+      </li>`;
+  }).join("");
+
+  document.getElementById("changelog-content").innerHTML =
+    `<ul class="changelog-list">${entries}</ul>`;
+}
+
+// ── Render sources ────────────────────────────────────────────────────────
+
+function renderSources(sources) {
+  const labels = {
+    finance:  "Finance Department (budgets, reports)",
+    agendas:  "Agenda Center (meetings, minutes)",
+    home:     "County Homepage (news, alerts)",
+    apa:      "Virginia Auditor of Public Accounts",
+  };
+  const items = Object.entries(sources).map(([key, url]) => `
+    <li>
+      <a href="${esc(url)}" target="_blank" rel="noopener">${esc(labels[key] || key)}</a>
+    </li>`).join("");
+  document.getElementById("sources-content").innerHTML =
+    `<ul class="sources-list">${items}</ul>`;
+}
+
+// ── Main loader ───────────────────────────────────────────────────────────
+
+async function loadData() {
+  let data, changelog;
+
+  try {
+    const [dataRes, changeRes] = await Promise.all([
+      fetch("data.json"),
+      fetch("changelog.json").catch(() => null),
+    ]);
+
+    if (!dataRes.ok) throw new Error(`data.json returned ${dataRes.status}`);
+    data = await dataRes.json();
+    changelog = changeRes && changeRes.ok ? await changeRes.json() : [];
+  } catch (err) {
+    const msg = `<div class="state-msg error-msg">
+      Failed to load data.json: ${esc(err.message)}<br>
+      <small>Run <code>python3 scraper.py</code> to generate it, then serve locally or deploy to GitHub Pages.</small>
+    </div>`;
+    ["budget-content","officials-content","documents-content","changelog-content","sources-content"]
+      .forEach(id => { document.getElementById(id).innerHTML = msg; });
+    document.getElementById("last-updated").textContent = "Data unavailable";
+    return;
+  }
+
+  document.getElementById("last-updated").textContent =
+    data.generated_at ? `Updated ${fmtDate(data.generated_at)}` : "";
+
+  renderBudget(data.budget);
+  renderOfficials(data.officials);
+
+  allDocuments = data.documents || [];
+  buildFilters(allDocuments);
+  renderDocuments();
+
+  renderChangelog(changelog);
+  renderSources(data.sources || {});
+}
+
+loadData();
+</script>
+
+</body>
+</html>
