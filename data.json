@@ -1237,6 +1237,86 @@
     "finance": "https://www.botetourtva.gov/348/Finance",
     "agendas": "https://www.botetourtva.gov/AgendaCenter",
     "home": "https://www.botetourtva.gov",
-    "apa": "https://www.apa.virginia.gov/Audits/PublishedAudits.aspx"
-  }
+    "apa": "https://www.apa.virginia.gov/Audits/PublishedAudits.aspx",
+    "calendar": "https://www.botetourtva.gov/Calendar.aspx"
+  },
+  "events": [
+    {
+      "title": "Board of Supervisors Regular Meeting",
+      "date": "2026-05-26",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2001",
+      "body": "Board of Supervisors",
+      "source": "botetourtva.gov Calendar"
+    },
+    {
+      "title": "Planning Commission Regular Meeting",
+      "date": "2026-05-11",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2002",
+      "body": "Planning Commission",
+      "source": "botetourtva.gov Calendar"
+    },
+    {
+      "title": "Economic Development Authority Meeting",
+      "date": "2026-05-15",
+      "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05152026-720",
+      "body": "Economic Development Authority",
+      "source": "AgendaCenter"
+    },
+    {
+      "title": "Library Board of Trustees public meeting",
+      "date": "2026-05-13",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2003",
+      "body": "Library Board of Trustees",
+      "source": "botetourtva.gov Calendar"
+    },
+    {
+      "title": "Parks and Recreation Commission Meeting",
+      "date": "2026-06-01",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2004",
+      "body": "Parks & Recreation Commission",
+      "source": "botetourtva.gov Calendar"
+    },
+    {
+      "title": "Electoral Board Meeting",
+      "date": "2026-05-19",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2005",
+      "body": "Electoral Board",
+      "source": "botetourtva.gov Calendar"
+    },
+    {
+      "title": "Board of Zoning Appeals Hearing",
+      "date": "2026-05-12",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2006",
+      "body": "Board of Zoning Appeals",
+      "source": "botetourtva.gov Calendar"
+    },
+    {
+      "title": "Board of Supervisors Regular Meeting",
+      "date": "2026-06-23",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2007",
+      "body": "Board of Supervisors",
+      "source": "botetourtva.gov Calendar"
+    },
+    {
+      "title": "Planning Commission Regular Meeting",
+      "date": "2026-06-08",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2008",
+      "body": "Planning Commission",
+      "source": "botetourtva.gov Calendar"
+    },
+    {
+      "title": "Historic Greenfield Advisory Council Meeting",
+      "date": "2026-05-19",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2009",
+      "body": "Historic Greenfield Advisory Council",
+      "source": "botetourtva.gov Calendar"
+    },
+    {
+      "title": "Social Services Board Meeting",
+      "date": "2026-05-27",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2010",
+      "body": "Social Services Board",
+      "source": "botetourtva.gov Calendar"
+    }
+  ]
 }
