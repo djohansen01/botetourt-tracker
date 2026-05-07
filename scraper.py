@@ -669,9 +669,31 @@ def events_from_agendas(docs: list[dict]) -> list[dict]:
     return events
 
 
-# ---------------------------------------------------------------------------
-# Change detection
-# ---------------------------------------------------------------------------
+def events_from_news(docs: list[dict]) -> list[dict]:
+    """Extract upcoming events from homepage news items that contain a date in the title.
+
+    CivicPlus news alerts for public hearings and special meetings typically
+    include the date in the headline (e.g. 'Budget Public Hearing – May 13, 2026').
+    """
+    today = datetime.now(timezone.utc).date().isoformat()
+    events: list[dict] = []
+    for doc in docs:
+        if doc.get("type") != "news_alert":
+            continue
+        title = doc["title"]
+        date_str = _parse_date_text(title)
+        if date_str and date_str >= today:
+            events.append({
+                "title":  title,
+                "date":   date_str,
+                "url":    doc["url"],
+                "body":   extract_meeting_body(title),
+                "source": "botetourtva.gov News",
+            })
+    return events
+
+
+
 
 def detect_changes(
     new_docs: list[dict],
@@ -748,13 +770,20 @@ def main() -> None:
     cal_events = scrape_calendar(URLS["calendar"], months_ahead=3)
 
     # Supplement with future meetings extracted from AgendaCenter URL dates
-    agenda_ev = events_from_agendas(all_documents)
-    cal_keys  = {(e["date"], (e.get("body") or "").lower()) for e in cal_events}
-    for ev in agenda_ev:
-        key = (ev["date"], (ev.get("body") or "").lower())
+    cal_keys = {(e["date"], (e.get("body") or e["title"]).lower()) for e in cal_events}
+    for ev in events_from_agendas(all_documents):
+        key = (ev["date"], (ev.get("body") or ev["title"]).lower())
         if key not in cal_keys:
             cal_events.append(ev)
             cal_keys.add(key)
+
+    # Supplement with dated events found in homepage news headlines
+    for ev in events_from_news(all_documents):
+        key = (ev["date"], (ev.get("body") or ev["title"]).lower())
+        if key not in cal_keys:
+            cal_events.append(ev)
+            cal_keys.add(key)
+
     cal_events.sort(key=lambda e: e.get("date", ""))
     print(f"  ✓ {len(cal_events)} upcoming government meeting(s) in calendar")
 
