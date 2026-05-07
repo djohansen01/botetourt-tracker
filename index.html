@@ -264,6 +264,7 @@
       padding: 2rem;
       font-size: .9rem;
     }
+    .state-msg a { color: var(--blue); }
     .error-msg { color: #b91c1c; }
 
     /* ── Updated timestamp ───────────────────────────────────────────────── */
@@ -501,10 +502,11 @@ function renderEvents(events) {
   }
 
   const today = new Date().toISOString().slice(0, 10);
-  const upcoming = events.filter(e => (e.date || "") >= today);
+  const cutoff = new Date(Date.now() + 30 * 864e5).toISOString().slice(0, 10);
+  const upcoming = events.filter(e => (e.date || "") >= today && (e.date || "") <= cutoff);
 
   if (!upcoming.length) {
-    container.innerHTML = `<div class="state-msg">No upcoming meetings in the next 90 days.</div>`;
+    container.innerHTML = `<div class="state-msg">No upcoming meetings in the next 30 days. <a href="https://www.botetourtva.gov/Calendar.aspx" target="_blank" rel="noopener">View the county calendar →</a></div>`;
     return;
   }
 
