@@ -202,6 +202,51 @@
     }
     .sources-list li:last-child { border-bottom: none; }
 
+    /* ── Events calendar ────────────────────────────────────────────────── */
+    .event-day-group { margin-bottom: 1.25rem; }
+    .event-day-group:last-child { margin-bottom: 0; }
+
+    .event-date-header {
+      font-weight: 700;
+      color: var(--blue);
+      font-size: .9rem;
+      padding-bottom: .35rem;
+      margin-bottom: .5rem;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .event-item {
+      display: flex;
+      align-items: baseline;
+      gap: .6rem;
+      padding: .3rem 0;
+      font-size: .875rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    .event-item:last-child { border-bottom: none; }
+
+    .event-body-pill {
+      flex-shrink: 0;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: .15rem .5rem;
+      border-radius: 99px;
+      background: #e0e7ff;
+      color: #3730a3;
+      max-width: 180px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .event-source-tag {
+      flex-shrink: 0;
+      font-size: .7rem;
+      color: var(--muted);
+    }
+
     /* ── Footer ──────────────────────────────────────────────────────────── */
     footer {
       text-align: center;
@@ -251,6 +296,12 @@
   <div class="card full" id="officials-card">
     <h2>Board of Supervisors</h2>
     <div id="officials-content"><div class="state-msg">Loading officials…</div></div>
+  </div>
+
+  <!-- Upcoming Government Meetings -->
+  <div class="card full" id="events-card">
+    <h2>Upcoming Government Meetings</h2>
+    <div id="events-content"><div class="state-msg">Loading events…</div></div>
   </div>
 
   <!-- Documents -->
@@ -433,6 +484,59 @@ function renderChangelog(changelog) {
     `<ul class="changelog-list">${entries}</ul>`;
 }
 
+// ── Render events calendar ────────────────────────────────────────────────
+
+function renderEvents(events) {
+  const container = document.getElementById("events-content");
+  if (!events || !events.length) {
+    container.innerHTML =
+      `<div class="state-msg">No upcoming meetings found. ` +
+      `<a href="https://www.botetourtva.gov/Calendar.aspx" target="_blank" rel="noopener">` +
+      `View the county calendar →</a></div>`;
+    return;
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+  const upcoming = events.filter(e => (e.date || "") >= today);
+
+  if (!upcoming.length) {
+    container.innerHTML = `<div class="state-msg">No upcoming meetings in the next 90 days.</div>`;
+    return;
+  }
+
+  // Group by date
+  const byDate = {};
+  upcoming.forEach(e => {
+    if (!byDate[e.date]) byDate[e.date] = [];
+    byDate[e.date].push(e);
+  });
+
+  const html = Object.entries(byDate)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([dateStr, evs]) => {
+      // Use noon local time to avoid timezone-boundary shift
+      const d = new Date(dateStr + "T12:00:00");
+      const label = d.toLocaleDateString("en-US", {
+        weekday: "long", month: "long", day: "numeric", year: "numeric",
+      });
+      const items = evs.map(ev => `
+        <div class="event-item">
+          ${ev.body ? `<span class="event-body-pill" title="${esc(ev.body)}">${esc(ev.body)}</span>` : ""}
+          <span style="flex:1;font-size:.875rem">
+            <a href="${esc(ev.url)}" target="_blank" rel="noopener">${esc(ev.title)}</a>
+          </span>
+          <span class="event-source-tag">${esc(ev.source || "")}</span>
+        </div>`).join("");
+      return `
+        <div class="event-day-group">
+          <div class="event-date-header">${esc(label)}</div>
+          ${items}
+        </div>`;
+    }).join("");
+
+  container.innerHTML = html;
+}
+
 // ── Render sources ────────────────────────────────────────────────────────
 
 function renderSources(sources) {
@@ -441,6 +545,7 @@ function renderSources(sources) {
     agendas:  "Agenda Center (meetings, minutes)",
     home:     "County Homepage (news, alerts)",
     apa:      "Virginia Auditor of Public Accounts",
+    calendar: "Government Events Calendar",
   };
   const items = Object.entries(sources).map(([key, url]) => `
     <li>
@@ -469,7 +574,7 @@ async function loadData() {
       Failed to load data.json: ${esc(err.message)}<br>
       <small>Run <code>python3 scraper.py</code> to generate it, then serve locally or deploy to GitHub Pages.</small>
     </div>`;
-    ["budget-content","officials-content","documents-content","changelog-content","sources-content"]
+    ["budget-content","officials-content","events-content","documents-content","changelog-content","sources-content"]
       .forEach(id => { document.getElementById(id).innerHTML = msg; });
     document.getElementById("last-updated").textContent = "Data unavailable";
     return;
@@ -480,6 +585,7 @@ async function loadData() {
 
   renderBudget(data.budget);
   renderOfficials(data.officials);
+  renderEvents(data.events || []);
 
   allDocuments = data.documents || [];
   buildFilters(allDocuments);

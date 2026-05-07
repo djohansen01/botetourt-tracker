@@ -15,7 +15,7 @@ import sys
 import urllib.request
 import urllib.parse
 import urllib.error
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -29,6 +29,7 @@ URLS = {
     "home":      "https://www.botetourtva.gov",
     "apa":       "https://www.apa.virginia.gov/Audits/PublishedAudits.aspx",
     "apa_search": "https://www.apa.virginia.gov/Audits/PublishedAudits.aspx?search=botetourt",
+    "calendar":   "https://www.botetourtva.gov/Calendar.aspx",
 }
 
 OUTPUT_FILE    = Path("data.json")
@@ -257,6 +258,194 @@ def scrape_apa(html: str, base: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Government meetings calendar
+# ---------------------------------------------------------------------------
+
+# AgendaCenter URLs encode meeting date as _MMDDYYYY-NNN  (e.g. _05042026-677)
+AGENDA_DATE_RE = re.compile(r"/_(\d{2})(\d{2})(\d{4})-\d+")
+
+BODY_PATTERNS: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"board\s+of\s+supervisors",                    re.IGNORECASE), "Board of Supervisors"),
+    (re.compile(r"planning\s+commission",                       re.IGNORECASE), "Planning Commission"),
+    (re.compile(r"economic\s+development\s+authority|(?<!\w)eda(?!\w)", re.IGNORECASE), "Economic Development Authority"),
+    (re.compile(r"parks?\s+(?:and\s+)?rec(?:reation)?\s+commission", re.IGNORECASE), "Parks & Recreation Commission"),
+    (re.compile(r"library\s+board|board\s+of\s+trustees",       re.IGNORECASE), "Library Board of Trustees"),
+    (re.compile(r"social\s+services\s+board|dss\s+board",       re.IGNORECASE), "Social Services Board"),
+    (re.compile(r"electoral\s+board",                           re.IGNORECASE), "Electoral Board"),
+    (re.compile(r"board\s+of\s+zoning|zoning\s+appeals",        re.IGNORECASE), "Board of Zoning Appeals"),
+    (re.compile(r"historic\s+greenfield",                       re.IGNORECASE), "Historic Greenfield Advisory Council"),
+    (re.compile(r"(?<!\w)bccc(?!\w)",                           re.IGNORECASE), "BCCC"),
+    (re.compile(r"juneteenth",                                  re.IGNORECASE), "Juneteenth Committee"),
+    (re.compile(r"budget\s+sub.?committee",                     re.IGNORECASE), "Budget Subcommittee"),
+]
+
+NOISE_TITLE_RE = re.compile(
+    r"^(previous versions|skip to|rss|notify me|select a"
+    r"|agendas\s*&?\s*minutes|view all|pdf|packet"
+    r"|application[s]? for|information package)\b",
+    re.IGNORECASE,
+)
+
+
+def extract_meeting_body(title: str) -> str | None:
+    for pattern, body_name in BODY_PATTERNS:
+        if pattern.search(title):
+            return body_name
+    return None
+
+
+def agenda_url_to_date(url: str) -> str | None:
+    """Parse ISO date from AgendaCenter URL pattern _MMDDYYYY-NNN."""
+    m = AGENDA_DATE_RE.search(url)
+    if not m:
+        return None
+    try:
+        mo, dy, yr = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        return date(yr, mo, dy).isoformat()
+    except ValueError:
+        return None
+
+
+class CalendarParser(HTMLParser):
+    """Extract meeting events from CivicPlus Calendar.aspx month-grid HTML.
+
+    Each day cell (<td>) contains a day number (1–31) followed by zero or
+    more event links of the form Calendar.aspx?EID=NNN.  The parser tracks
+    the outermost <td> at a given nesting depth so nested <table>/<td>
+    elements inside a day cell don't confuse date attribution.
+    """
+
+    def __init__(self, base_url: str, year: int, month: int) -> None:
+        super().__init__()
+        self._base   = base_url
+        self._year   = year
+        self._month  = month
+        self.events: list[dict] = []
+
+        self._depth                  = 0
+        self._cell_depth: int | None = None
+        self._day_num:    int | None = None
+        self._cell_events: list[dict] = []
+
+        self._in_link   = False
+        self._link_url: str | None = None
+        self._link_text: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs) -> None:
+        self._depth += 1
+        d = dict(attrs)
+
+        if tag == "td" and self._cell_depth is None:
+            self._cell_depth  = self._depth
+            self._day_num     = None
+            self._cell_events = []
+
+        elif tag == "a" and not self._in_link:
+            href = d.get("href", "")
+            if re.search(r"[?&][Ee][Ii][Dd]=\d+", href):
+                url = href if href.startswith("http") else urllib.parse.urljoin(self._base, href)
+                self._link_url  = url
+                self._in_link   = True
+                self._link_text = []
+
+    def handle_data(self, data: str) -> None:
+        s = data.strip()
+        if not s:
+            return
+        if self._in_link:
+            self._link_text.append(s)
+        elif self._cell_depth is not None and s.isdigit():
+            n = int(s)
+            if 1 <= n <= 31 and self._day_num is None:
+                self._day_num = n
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "a" and self._in_link:
+            title = " ".join(self._link_text).strip()
+            if title and self._link_url:
+                self._cell_events.append({"title": title, "url": self._link_url})
+            self._in_link  = False
+            self._link_url = None
+
+        if tag == "td" and self._cell_depth == self._depth:
+            if self._day_num and self._cell_events:
+                try:
+                    date_str = date(self._year, self._month, self._day_num).isoformat()
+                    for ev in self._cell_events:
+                        ev["date"]   = date_str
+                        ev["source"] = "botetourtva.gov Calendar"
+                        ev["body"]   = extract_meeting_body(ev["title"])
+                    self.events.extend(self._cell_events)
+                except ValueError:
+                    pass
+            self._cell_depth  = None
+            self._day_num     = None
+            self._cell_events = []
+
+        self._depth -= 1
+
+
+def scrape_calendar(base_url: str, months_ahead: int = 3) -> list[dict]:
+    """Fetch upcoming government meetings from Calendar.aspx for multiple months."""
+    now_utc = datetime.now(timezone.utc)
+    today   = now_utc.date().isoformat()
+    events: list[dict] = []
+    seen:   set[str]   = set()
+
+    for offset in range(months_ahead):
+        total = now_utc.month - 1 + offset
+        yr    = now_utc.year + total // 12
+        mo    = total % 12 + 1
+        url   = f"{base_url}?month={mo}&year={yr}"
+        html  = fetch(url)
+        if not html:
+            continue
+        parser = CalendarParser(base_url, yr, mo)
+        parser.feed(html)
+        added = 0
+        for ev in parser.events:
+            if ev.get("date", "") >= today and ev["url"] not in seen:
+                seen.add(ev["url"])
+                events.append(ev)
+                added += 1
+        print(f"    calendar {mo}/{yr}: {len(parser.events)} total, {added} upcoming")
+
+    events.sort(key=lambda e: e.get("date", ""))
+    return events
+
+
+def events_from_agendas(docs: list[dict]) -> list[dict]:
+    """Derive upcoming meeting events from AgendaCenter documents via URL date encoding."""
+    today = datetime.now(timezone.utc).date().isoformat()
+    events: list[dict] = []
+    seen:   set[str]   = set()
+
+    for doc in docs:
+        if doc.get("type") != "agenda":
+            continue
+        title = doc["title"]
+        if NOISE_TITLE_RE.match(title):
+            continue
+        date_str = agenda_url_to_date(doc["url"])
+        if not date_str or date_str < today:
+            continue
+        key = f"{date_str}\x00{title.lower()}"
+        if key in seen:
+            continue
+        seen.add(key)
+        events.append({
+            "title":  title,
+            "date":   date_str,
+            "url":    doc["url"],
+            "body":   extract_meeting_body(title),
+            "source": "AgendaCenter",
+        })
+
+    events.sort(key=lambda e: e.get("date", ""))
+    return events
+
+
+# ---------------------------------------------------------------------------
 # Change detection
 # ---------------------------------------------------------------------------
 
@@ -327,6 +516,21 @@ def main() -> None:
         all_new_items.extend(new_items)
         print(f"    Found {len(docs)} items ({len(new_items)} new)")
 
+    # Build government-meetings calendar
+    print(f"  Fetching calendar: {URLS['calendar']}")
+    cal_events = scrape_calendar(URLS["calendar"], months_ahead=3)
+
+    # Supplement with future meetings extracted from AgendaCenter URL dates
+    agenda_ev = events_from_agendas(all_documents)
+    cal_keys  = {(e["date"], (e.get("body") or "").lower()) for e in cal_events}
+    for ev in agenda_ev:
+        key = (ev["date"], (ev.get("body") or "").lower())
+        if key not in cal_keys:
+            cal_events.append(ev)
+            cal_keys.add(key)
+    cal_events.sort(key=lambda e: e.get("date", ""))
+    print(f"  ✓ {len(cal_events)} upcoming government meeting(s) in calendar")
+
     # Build changelog entry
     if all_new_items:
         entry = {
@@ -352,11 +556,13 @@ def main() -> None:
         "officials":    OFFICIALS,
         "budget":       BUDGET,
         "documents":    all_documents,
+        "events":       cal_events,
         "sources": {
             "finance":  URLS["finance"],
             "agendas":  URLS["agendas"],
             "home":     URLS["home"],
             "apa":      URLS["apa"],
+            "calendar": URLS["calendar"],
         },
     }
 
