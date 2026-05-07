@@ -204,6 +204,28 @@
     }
     .sources-list li:last-child { border-bottom: none; }
 
+    /* ── Latest news ─────────────────────────────────────────────────────── */
+    .news-item {
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-date {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-bottom: .2rem;
+    }
+    .news-headline {
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: .3rem;
+    }
+    .news-body {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     /* ── Events calendar ────────────────────────────────────────────────── */
     .event-day-group { margin-bottom: 1.25rem; }
     .event-day-group:last-child { margin-bottom: 0; }
@@ -299,6 +321,12 @@
   <div class="card full" id="officials-card">
     <h2>Board of Supervisors</h2>
     <div id="officials-content"><div class="state-msg">Loading officials…</div></div>
+  </div>
+
+  <!-- Latest News -->
+  <div class="card full" id="news-card">
+    <h2>Latest News</h2>
+    <div id="news-content"><div class="state-msg">Loading news…</div></div>
   </div>
 
   <!-- Upcoming Government Meetings -->
@@ -489,6 +517,31 @@ function renderChangelog(changelog) {
     `<ul class="changelog-list">${entries}</ul>`;
 }
 
+// ── Render latest news ───────────────────────────────────────────────────
+
+function renderNews(news) {
+  const container = document.getElementById("news-content");
+  if (!news || !news.length) {
+    container.innerHTML =
+      `<div class="state-msg">No news available. ` +
+      `<a href="https://www.botetourtva.gov" target="_blank" rel="noopener">Visit county website →</a></div>`;
+    return;
+  }
+  const items = news.map(n => {
+    const dateHtml = n.date
+      ? `<div class="news-date">${new Date(n.date + "T12:00:00").toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}</div>`
+      : "";
+    const bodyHtml = n.body ? `<div class="news-body">${esc(n.body)}</div>` : "";
+    return `
+      <div class="news-item">
+        ${dateHtml}
+        <div class="news-headline"><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a></div>
+        ${bodyHtml}
+      </div>`;
+  }).join("");
+  container.innerHTML = items;
+}
+
 // ── Render events calendar ────────────────────────────────────────────────
 
 function renderEvents(events) {
@@ -583,7 +636,7 @@ async function loadData() {
       Failed to load data.json: ${esc(err.message)}<br>
       <small>Run <code>python3 scraper.py</code> to generate it, then serve locally or deploy to GitHub Pages.</small>
     </div>`;
-    ["budget-content","officials-content","events-content","documents-content","changelog-content","sources-content"]
+    ["budget-content","officials-content","news-content","events-content","documents-content","changelog-content","sources-content"]
       .forEach(id => { document.getElementById(id).innerHTML = msg; });
     document.getElementById("last-updated").textContent = "Data unavailable";
     return;
@@ -594,6 +647,7 @@ async function loadData() {
 
   renderBudget(data.budget);
   renderOfficials(data.officials);
+  renderNews(data.news || []);
   renderEvents(data.events || []);
 
   allDocuments = data.documents || [];

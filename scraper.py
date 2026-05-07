@@ -669,28 +669,56 @@ def events_from_agendas(docs: list[dict]) -> list[dict]:
     return events
 
 
-def events_from_news(docs: list[dict]) -> list[dict]:
-    """Extract upcoming events from homepage news items that contain a date in the title.
+_NEWS_RSS_PATHS = [
+    "/rss.aspx?Feed=CivicAlerts&feedTitle=News",
+    "/rss.aspx?Feed=CivicAlerts",
+    "/rss.aspx",
+]
 
-    CivicPlus news alerts for public hearings and special meetings typically
-    include the date in the headline (e.g. 'Budget Public Hearing – May 13, 2026').
-    """
-    today = datetime.now(timezone.utc).date().isoformat()
-    events: list[dict] = []
-    for doc in docs:
-        if doc.get("type") != "news_alert":
+def scrape_news_feed(base_url: str, max_items: int = 10) -> list[dict]:
+    """Fetch latest county news from CivicPlus RSS, with headline + body snippet."""
+    base_site = urllib.parse.urljoin(base_url, "/").rstrip("/")
+    for path in _NEWS_RSS_PATHS:
+        xml = fetch(base_site + path)
+        if not xml:
             continue
-        title = doc["title"]
-        date_str = _parse_date_text(title)
-        if date_str and date_str >= today:
-            events.append({
-                "title":  title,
-                "date":   date_str,
-                "url":    doc["url"],
-                "body":   extract_meeting_body(title),
-                "source": "botetourtva.gov News",
-            })
-    return events
+        items: list[dict] = []
+        try:
+            root = ET.fromstring(xml)
+            for item in root.iter("item"):
+                title_el = item.find("title")
+                link_el  = item.find("link")
+                desc_el  = item.find("description")
+                date_el  = item.find("pubDate")
+                if title_el is None or link_el is None:
+                    continue
+                title = (title_el.text or "").strip()
+                url   = (link_el.text or "").strip()
+                if not title or not url:
+                    continue
+                if re.search(r"[?&][Ee][Ii][Dd]=\d+", url):
+                    continue  # calendar event, not news
+                if SOCIAL_RE.search(title):
+                    continue
+                body = ""
+                if desc_el is not None and desc_el.text:
+                    body = re.sub(r"<[^>]+>", " ", desc_el.text)
+                    body = re.sub(r"\s+", " ", body).strip()[:280]
+                date_str = None
+                if date_el is not None and date_el.text:
+                    date_str = _parse_date_text(date_el.text)
+                items.append({
+                    "title":  title,
+                    "url":    url,
+                    "body":   body,
+                    "date":   date_str or "",
+                    "source": "botetourtva.gov",
+                })
+            if items:
+                return items[:max_items]
+        except ET.ParseError:
+            pass
+    return []
 
 
 
@@ -777,15 +805,12 @@ def main() -> None:
             cal_events.append(ev)
             cal_keys.add(key)
 
-    # Supplement with dated events found in homepage news headlines
-    for ev in events_from_news(all_documents):
-        key = (ev["date"], (ev.get("body") or ev["title"]).lower())
-        if key not in cal_keys:
-            cal_events.append(ev)
-            cal_keys.add(key)
-
     cal_events.sort(key=lambda e: e.get("date", ""))
     print(f"  ✓ {len(cal_events)} upcoming government meeting(s) in calendar")
+
+    # Latest news feed (headline + body snippet)
+    news_items = scrape_news_feed(URLS["home"])
+    print(f"  ✓ {len(news_items)} news item(s) from RSS")
 
     # Build changelog entry
     if all_new_items:
@@ -813,6 +838,7 @@ def main() -> None:
         "budget":       BUDGET,
         "documents":    all_documents,
         "events":       cal_events,
+        "news":         news_items,
         "sources": {
             "finance":           URLS["finance"],
             "agendas":           URLS["agendas"],
