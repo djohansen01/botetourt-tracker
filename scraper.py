@@ -15,6 +15,7 @@ import sys
 import urllib.request
 import urllib.parse
 import urllib.error
+import xml.etree.ElementTree as ET
 from datetime import date, datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -358,6 +359,42 @@ NOISE_TITLE_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Free-text date extractor: "May 13th, 2026" / "13 May 2026" (RSS)
+_MONTH_NAMES = (
+    r"Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?"
+    r"|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?"
+)
+DATE_TEXT_RE = re.compile(
+    rf"({_MONTH_NAMES})\s+(\d{{1,2}})(?:st|nd|rd|th)?,?\s+(\d{{4}})",
+    re.IGNORECASE,
+)
+DATE_DMY_RE = re.compile(            # RSS pubDate: "13 May 2026"
+    rf"(\d{{1,2}})\s+({_MONTH_NAMES})\s+(\d{{4}})",
+    re.IGNORECASE,
+)
+_MONTH_MAP = {
+    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+}
+
+
+def _parse_date_text(text: str) -> str | None:
+    m = DATE_TEXT_RE.search(text)
+    if m:
+        try:
+            mo = _MONTH_MAP[m.group(1)[:3].lower()]
+            return date(int(m.group(3)), mo, int(m.group(2))).isoformat()
+        except (KeyError, ValueError):
+            pass
+    m = DATE_DMY_RE.search(text)
+    if m:
+        try:
+            mo = _MONTH_MAP[m.group(2)[:3].lower()]
+            return date(int(m.group(3)), mo, int(m.group(1))).isoformat()
+        except (KeyError, ValueError):
+            pass
+    return None
+
 
 def extract_meeting_body(title: str) -> str | None:
     for pattern, body_name in BODY_PATTERNS:
@@ -379,29 +416,52 @@ def agenda_url_to_date(url: str) -> str | None:
 
 
 class CalendarParser(HTMLParser):
-    """Extract meeting events from CivicPlus Calendar.aspx month-grid HTML.
+    """Comprehensive CivicPlus Calendar.aspx parser.
 
-    Each day cell (<td>) contains a day number (1–31) followed by zero or
-    more event links of the form Calendar.aspx?EID=NNN.  The parser tracks
-    the outermost <td> at a given nesting depth so nested <table>/<td>
-    elements inside a day cell don't confuse date attribution.
+    Strategy A (month grid): tracks outermost <td> cells, associates each
+    EID link with the day number found in that cell.
+
+    Strategy B (broad sweep): captures every EID link on the page regardless
+    of HTML structure, extracts dates from surrounding text or the title.
+
+    Results are merged; Strategy A (cell-confirmed) takes priority.
     """
 
     def __init__(self, base_url: str, year: int, month: int) -> None:
         super().__init__()
-        self._base   = base_url
-        self._year   = year
-        self._month  = month
-        self.events: list[dict] = []
+        self._base  = base_url
+        self._year  = year
+        self._month = month
 
-        self._depth                  = 0
-        self._cell_depth: int | None = None
-        self._day_num:    int | None = None
+        # Strategy A
+        self._depth                   = 0
+        self._cell_depth: int | None  = None
+        self._day_num:    int | None  = None
         self._cell_events: list[dict] = []
+        self._dated: list[dict]       = []
 
-        self._in_link   = False
+        # Strategy B
+        self._all: list[dict] = []
+        self._ctx: list[str]  = []   # rolling text window
+
+        # Link state
+        self._in_link              = False
         self._link_url: str | None = None
         self._link_text: list[str] = []
+
+    @property
+    def events(self) -> list[dict]:
+        dated_urls = {e["url"] for e in self._dated}
+        extras: list[dict] = []
+        for ev in self._all:
+            if ev["url"] in dated_urls:
+                continue
+            ctx = ev.pop("_ctx", "")
+            d = _parse_date_text(ctx) or _parse_date_text(ev["title"])
+            if d:
+                ev["date"] = d
+                extras.append(ev)
+        return self._dated + extras
 
     def handle_starttag(self, tag: str, attrs) -> None:
         self._depth += 1
@@ -415,7 +475,8 @@ class CalendarParser(HTMLParser):
         elif tag == "a" and not self._in_link:
             href = d.get("href", "")
             if re.search(r"[?&][Ee][Ii][Dd]=\d+", href):
-                url = href if href.startswith("http") else urllib.parse.urljoin(self._base, href)
+                url = (href if href.startswith("http")
+                       else urllib.parse.urljoin(self._base, href))
                 self._link_url  = url
                 self._in_link   = True
                 self._link_text = []
@@ -426,16 +487,29 @@ class CalendarParser(HTMLParser):
             return
         if self._in_link:
             self._link_text.append(s)
-        elif self._cell_depth is not None and s.isdigit():
-            n = int(s)
-            if 1 <= n <= 31 and self._day_num is None:
-                self._day_num = n
+        else:
+            self._ctx.append(s)
+            if len(self._ctx) > 20:
+                self._ctx.pop(0)
+            if self._cell_depth is not None and s.isdigit():
+                n = int(s)
+                if 1 <= n <= 31 and self._day_num is None:
+                    self._day_num = n
 
     def handle_endtag(self, tag: str) -> None:
         if tag == "a" and self._in_link:
             title = " ".join(self._link_text).strip()
             if title and self._link_url:
-                self._cell_events.append({"title": title, "url": self._link_url})
+                ev: dict = {
+                    "title":  title,
+                    "url":    self._link_url,
+                    "source": "botetourtva.gov Calendar",
+                    "body":   extract_meeting_body(title),
+                    "_ctx":   " ".join(self._ctx[-10:]),
+                }
+                if self._cell_depth is not None:
+                    self._cell_events.append(ev)
+                self._all.append(ev)
             self._in_link  = False
             self._link_url = None
 
@@ -444,10 +518,10 @@ class CalendarParser(HTMLParser):
                 try:
                     date_str = date(self._year, self._month, self._day_num).isoformat()
                     for ev in self._cell_events:
-                        ev["date"]   = date_str
-                        ev["source"] = "botetourtva.gov Calendar"
-                        ev["body"]   = extract_meeting_body(ev["title"])
-                    self.events.extend(self._cell_events)
+                        copy = dict(ev)
+                        copy["date"] = date_str
+                        copy.pop("_ctx", None)
+                        self._dated.append(copy)
                 except ValueError:
                     pass
             self._cell_depth  = None
@@ -457,13 +531,52 @@ class CalendarParser(HTMLParser):
         self._depth -= 1
 
 
+def _scrape_calendar_rss(rss_url: str) -> list[dict]:
+    """Parse CivicPlus RSS feed for calendar events with explicit dates."""
+    html = fetch(rss_url)
+    if not html:
+        return []
+    events: list[dict] = []
+    try:
+        root = ET.fromstring(html)
+        for item in root.iter("item"):
+            title_el = item.find("title")
+            link_el  = item.find("link")
+            date_el  = item.find("pubDate")
+            if title_el is None or link_el is None:
+                continue
+            title = (title_el.text or "").strip()
+            url   = (link_el.text or "").strip()
+            if not title or not url:
+                continue
+            if not re.search(r"[?&][Ee][Ii][Dd]=\d+", url):
+                continue
+            date_str = None
+            if date_el is not None and date_el.text:
+                date_str = _parse_date_text(date_el.text)
+            if not date_str:
+                date_str = _parse_date_text(title)
+            if date_str:
+                events.append({
+                    "title":  title,
+                    "date":   date_str,
+                    "url":    url,
+                    "source": "botetourtva.gov Calendar (RSS)",
+                    "body":   extract_meeting_body(title),
+                })
+    except ET.ParseError:
+        pass
+    return events
+
+
 def scrape_calendar(base_url: str, months_ahead: int = 3) -> list[dict]:
-    """Fetch upcoming government meetings from Calendar.aspx for multiple months."""
+    """Fetch upcoming government meetings from Calendar.aspx (month grid + RSS)."""
     now_utc = datetime.now(timezone.utc)
     today   = now_utc.date().isoformat()
     events: list[dict] = []
     seen:   set[str]   = set()
 
+    # Month-grid pages (Strategy A + B)
     for offset in range(months_ahead):
         total = now_utc.month - 1 + offset
         yr    = now_utc.year + total // 12
@@ -480,7 +593,22 @@ def scrape_calendar(base_url: str, months_ahead: int = 3) -> list[dict]:
                 seen.add(ev["url"])
                 events.append(ev)
                 added += 1
-        print(f"    calendar {mo}/{yr}: {len(parser.events)} total, {added} upcoming")
+        print(f"    calendar {mo}/{yr}: {len(parser.events)} parsed, {added} upcoming")
+
+    # RSS supplement (catches events the HTML parser may miss)
+    base_site = urllib.parse.urljoin(base_url, "/").rstrip("/")
+    for rss_path in ("/rss.aspx?type=calendar", "/rss.aspx"):
+        rss_evs = _scrape_calendar_rss(base_site + rss_path)
+        added = 0
+        for ev in rss_evs:
+            if ev.get("date", "") >= today and ev["url"] not in seen:
+                seen.add(ev["url"])
+                events.append(ev)
+                added += 1
+        if rss_evs:
+            if added:
+                print(f"    RSS: {added} additional events from {rss_path}")
+            break
 
     events.sort(key=lambda e: e.get("date", ""))
     return events
