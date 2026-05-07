@@ -452,15 +452,39 @@ class CalendarParser(HTMLParser):
     @property
     def events(self) -> list[dict]:
         dated_urls = {e["url"] for e in self._dated}
-        extras: list[dict] = []
+
+        # Group all captured links by URL so we can match a real title
+        # (first occurrence) with a date found in a later occurrence's context.
+        # CivicPlus renders each event twice: once as a title link, then as a
+        # "More Details" link; the date text appears between the two.
+        by_url: dict[str, list[dict]] = {}
         for ev in self._all:
-            if ev["url"] in dated_urls:
+            by_url.setdefault(ev["url"], []).append(ev)
+
+        _generic = {"more details", "more detail", "details", ""}
+        extras: list[dict] = []
+        for url, evs in by_url.items():
+            if url in dated_urls:
                 continue
-            ctx = ev.pop("_ctx", "")
-            d = _parse_date_text(ctx) or _parse_date_text(ev["title"])
-            if d:
-                ev["date"] = d
-                extras.append(ev)
+            title = next(
+                (e["title"].strip() for e in evs
+                 if e["title"].strip().lower() not in _generic),
+                evs[0]["title"],
+            )
+            date_str = None
+            for ev in evs:
+                date_str = _parse_date_text(ev.get("_ctx", ""))
+                if date_str:
+                    break
+            if not date_str:
+                date_str = _parse_date_text(title)
+            if date_str:
+                entry = dict(evs[0])
+                entry.update(title=title, date=date_str,
+                             body=extract_meeting_body(title))
+                entry.pop("_ctx", None)
+                extras.append(entry)
+
         return self._dated + extras
 
     def handle_starttag(self, tag: str, attrs) -> None:
