@@ -473,7 +473,7 @@ class CalendarParser(HTMLParser):
             self._cell_events = []
 
         elif tag == "a" and not self._in_link:
-            href = d.get("href", "")
+            href = d.get("href") or ""
             if re.search(r"[?&][Ee][Ii][Dd]=\d+", href):
                 url = (href if href.startswith("http")
                        else urllib.parse.urljoin(self._base, href))
