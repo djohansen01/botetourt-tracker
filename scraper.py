@@ -30,6 +30,9 @@ URLS = {
     "apa":       "https://www.apa.virginia.gov/Audits/PublishedAudits.aspx",
     "apa_search": "https://www.apa.virginia.gov/Audits/PublishedAudits.aspx?search=botetourt",
     "calendar":   "https://www.botetourtva.gov/Calendar.aspx",
+    "legal_notices": "https://www.botetourtva.gov/814/Legal-Public-Notices",
+    "financial_reports": "https://www.botetourtva.gov/992/Financial-Reports",
+    "bids":       "https://www.botetourtva.gov/Bids.aspx",
 }
 
 OUTPUT_FILE    = Path("data.json")
@@ -182,10 +185,23 @@ class MetaParser(HTMLParser):
 # ---------------------------------------------------------------------------
 
 PDF_PATTERN     = re.compile(r"\.pdf", re.IGNORECASE)
-BUDGET_PATTERN  = re.compile(r"budget|fy\s*20\d\d|fiscal", re.IGNORECASE)
+BUDGET_PATTERN  = re.compile(r"budget|fy\s*20\d\d|fiscal|financial.?report|acfr|cafr|annual.?report", re.IGNORECASE)
 AGENDA_PATTERN  = re.compile(r"agenda|minute|meeting|board", re.IGNORECASE)
 AUDIT_PATTERN   = re.compile(r"botetourt", re.IGNORECASE)
 NEWS_PATTERN    = re.compile(r"alert|news|notice|announcement|press.?release", re.IGNORECASE)
+NOTICE_PATTERN  = re.compile(r"notice|public.?hearing|legal.?ad|ordinance|rezoning|variance|petition|zoning.?map", re.IGNORECASE)
+BID_PATTERN     = re.compile(r"[?&][Bb][Ii][Dd]=\d+|bid|rfp|rfq|proposal|procurement|solicitation", re.IGNORECASE)
+
+# Exclude clearly recreational/social content from government news feed
+SOCIAL_RE = re.compile(
+    r"\b(party|bash|splash|festival|concert|5k|fun\s+run|ski\s+lesson"
+    r"|snowboard|basketball|softball|baseball|soccer|football|volleyball"
+    r"|tennis|rec\s+nights?|registration\s+details?|restaurant\s+week"
+    r"|art\s+contest|trivia|bingo|movie\s+night|coaches\s+cup|boco\s+wild"
+    r"|adventure\s+awaits|love\s+is\s+all|fall\s+in\s+love|spring\s+kickoff"
+    r"|splash\s+bash|adoption\s+event|free\s+ski|winter\s+rec|spring\s+reg)\b",
+    re.IGNORECASE,
+)
 
 
 def scrape_finance(html: str, base: str) -> list[dict]:
@@ -231,12 +247,68 @@ def scrape_home_news(html: str, base: str) -> list[dict]:
         text = link["text"]
         url  = link["url"]
         if NEWS_PATTERN.search(text) or NEWS_PATTERN.search(url):
+            if SOCIAL_RE.search(text):
+                continue
             items.append({
                 "title":  text,
                 "url":    url,
                 "type":   "news_alert",
                 "source": "botetourtva.gov",
             })
+    return items
+
+
+def scrape_legal_notices(html: str, base: str) -> list[dict]:
+    parser = LinkParser(base)
+    parser.feed(html)
+    items = []
+    for link in parser.links:
+        url  = link["url"]
+        text = link["text"]
+        if NOTICE_PATTERN.search(text) or NOTICE_PATTERN.search(url) or PDF_PATTERN.search(url):
+            if len(text) > 4:  # skip bare navigation links
+                items.append({
+                    "title":  text,
+                    "url":    url,
+                    "type":   "public_notice",
+                    "source": "Legal & Public Notices",
+                })
+    return items
+
+
+def scrape_bids(html: str, base: str) -> list[dict]:
+    parser = LinkParser(base)
+    parser.feed(html)
+    items = []
+    for link in parser.links:
+        url  = link["url"]
+        text = link["text"]
+        if re.search(r"[?&][Bb][Ii][Dd]=\d+", url) or BID_PATTERN.search(text):
+            if len(text) > 4:
+                items.append({
+                    "title":  text,
+                    "url":    url,
+                    "type":   "bid",
+                    "source": "Procurement / Bids",
+                })
+    return items
+
+
+def scrape_financial_reports(html: str, base: str) -> list[dict]:
+    parser = LinkParser(base)
+    parser.feed(html)
+    items = []
+    for link in parser.links:
+        url  = link["url"]
+        text = link["text"]
+        if PDF_PATTERN.search(url) or BUDGET_PATTERN.search(text):
+            if len(text) > 4:
+                items.append({
+                    "title":  text,
+                    "url":    url,
+                    "type":   "budget_document",
+                    "source": "Financial Reports",
+                })
     return items
 
 
@@ -488,10 +560,13 @@ def main() -> None:
     current_hashes: dict      = dict(old_hashes)
 
     sections = [
-        ("finance", URLS["finance"],    scrape_finance),
-        ("agendas", URLS["agendas"],    scrape_agendas),
-        ("home",    URLS["home"],       scrape_home_news),
-        ("apa",     URLS["apa_search"], scrape_apa),
+        ("finance",           URLS["finance"],           scrape_finance),
+        ("agendas",           URLS["agendas"],           scrape_agendas),
+        ("home",              URLS["home"],              scrape_home_news),
+        ("apa",               URLS["apa_search"],        scrape_apa),
+        ("legal_notices",     URLS["legal_notices"],     scrape_legal_notices),
+        ("bids",              URLS["bids"],              scrape_bids),
+        ("financial_reports", URLS["financial_reports"], scrape_financial_reports),
     ]
 
     for section, url, scrape_fn in sections:
@@ -558,11 +633,14 @@ def main() -> None:
         "documents":    all_documents,
         "events":       cal_events,
         "sources": {
-            "finance":  URLS["finance"],
-            "agendas":  URLS["agendas"],
-            "home":     URLS["home"],
-            "apa":      URLS["apa"],
-            "calendar": URLS["calendar"],
+            "finance":           URLS["finance"],
+            "agendas":           URLS["agendas"],
+            "home":              URLS["home"],
+            "apa":               URLS["apa"],
+            "calendar":          URLS["calendar"],
+            "legal_notices":     URLS["legal_notices"],
+            "financial_reports": URLS["financial_reports"],
+            "bids":              URLS["bids"],
         },
     }
 

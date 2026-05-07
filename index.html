@@ -167,6 +167,8 @@
     .doc-type-pill.minutes         { background: #fef9c3; color: #854d0e; }
     .doc-type-pill.audit_report    { background: #fce7f3; color: #9d174d; }
     .doc-type-pill.news_alert      { background: #ffedd5; color: #9a3412; }
+    .doc-type-pill.public_notice   { background: #fef3c7; color: #92400e; }
+    .doc-type-pill.bid             { background: #d1fae5; color: #065f46; }
 
     .doc-new-badge {
       flex-shrink: 0;
@@ -361,6 +363,8 @@ function typeLabel(type) {
     minutes:         "Minutes",
     audit_report:    "Audit",
     news_alert:      "News",
+    public_notice:   "Notice",
+    bid:             "Bid",
   };
   return map[type] || type;
 }
@@ -541,11 +545,14 @@ function renderEvents(events) {
 
 function renderSources(sources) {
   const labels = {
-    finance:  "Finance Department (budgets, reports)",
-    agendas:  "Agenda Center (meetings, minutes)",
-    home:     "County Homepage (news, alerts)",
-    apa:      "Virginia Auditor of Public Accounts",
-    calendar: "Government Events Calendar",
+    finance:           "Finance Department (budgets, reports)",
+    agendas:           "Agenda Center (meetings, minutes)",
+    home:              "County Homepage (gov. news & alerts)",
+    apa:               "Virginia Auditor of Public Accounts",
+    calendar:          "Government Events Calendar",
+    legal_notices:     "Legal & Public Notices",
+    financial_reports: "Annual Financial Reports (ACFR)",
+    bids:              "Procurement / Bids",
   };
   const items = Object.entries(sources).map(([key, url]) => `
     <li>
