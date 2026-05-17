@@ -1,5 +1,1401 @@
 [
   {
+    "timestamp": "2026-05-17T08:36:07+00:00",
+    "new_count": 278,
+    "items": [
+      {
+        "title": "Annual Financial Reports",
+        "url": "https://www.botetourtva.gov/992/Annual-Financial-Reports",
+        "type": "budget_document"
+      },
+      {
+        "title": "Annual Budget",
+        "url": "https://www.botetourtva.gov/999/Annual-Budget",
+        "type": "budget_document"
+      },
+      {
+        "title": "Skip to Main Content",
+        "url": "https://www.botetourtva.gov/AgendaCenter#contentarea",
+        "type": "agenda"
+      },
+      {
+        "title": "RSS",
+        "url": "https://www.botetourtva.gov/rss.aspx#agendaCenter",
+        "type": "agenda"
+      },
+      {
+        "title": "Notify Me®",
+        "url": "https://www.botetourtva.gov/list.aspx#agendaCenter",
+        "type": "agenda"
+      },
+      {
+        "title": "Select a Category",
+        "url": "https://www.botetourtva.gov/AgendaCenter#categoryList",
+        "type": "agenda"
+      },
+      {
+        "title": "FY27 Budget and Tax Rates Public Hearing",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05132026-723",
+        "type": "agenda"
+      },
+      {
+        "title": "Board of Supervisors Regular Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04282026-717",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04282026-717",
+        "type": "agenda"
+      },
+      {
+        "title": "Board of Supervisors Regular Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_03242026-707",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_03242026-707",
+        "type": "agenda"
+      },
+      {
+        "title": "Special Meeting of the Botetourt County Board of Supervisors",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_03102026-705",
+        "type": "agenda"
+      },
+      {
+        "title": "Board of Supervisors Regular Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02242026-694",
+        "type": "agenda"
+      },
+      {
+        "title": "Board of Supervisors Regular Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01272026-683",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_01272026-683",
+        "type": "agenda"
+      },
+      {
+        "title": "Special Meeting of the Botetourt County Board of Supervisors",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01222026-703",
+        "type": "agenda"
+      },
+      {
+        "title": "April 10, 2026 Budget Subcommittee Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04102026-702",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04102026-702",
+        "type": "agenda"
+      },
+      {
+        "title": "April 8, 2026 Budget Subcommittee Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04082026-701",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04082026-701",
+        "type": "agenda"
+      },
+      {
+        "title": "April 6, 2026 Budget  Subcommittee Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04062026-700",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04062026-700",
+        "type": "agenda"
+      },
+      {
+        "title": "April 3, 2026 Budget Subcommittee Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04032026-699",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04032026-699",
+        "type": "agenda"
+      },
+      {
+        "title": "April 1, 2026 Budget Subcommittee Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04012026-698",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04012026-698",
+        "type": "agenda"
+      },
+      {
+        "title": "March 30, 2026 Budget Subcommittee Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_03302026-697",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_03302026-697",
+        "type": "agenda"
+      },
+      {
+        "title": "2026 Budget Subcommittee Meeting Schedule",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02262026-696",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_02262026-696",
+        "type": "agenda"
+      },
+      {
+        "title": "Board of Zoning Appeals October 2025 Agenda",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_10142025-644",
+        "type": "agenda"
+      },
+      {
+        "title": "Application for upcoming public hearing",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_10142025-641?html=true",
+        "type": "agenda"
+      },
+      {
+        "title": "PDF",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_10142025-641",
+        "type": "agenda"
+      },
+      {
+        "title": "Packet",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_10142025-641?packet=true",
+        "type": "agenda"
+      },
+      {
+        "title": "Board of Zoning Appeals July 2025 Agenda",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_07082025-614",
+        "type": "agenda"
+      },
+      {
+        "title": "Application for upcoming public hearing",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_07082025-610?html=true",
+        "type": "agenda"
+      },
+      {
+        "title": "PDF",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_07082025-610",
+        "type": "agenda"
+      },
+      {
+        "title": "Packet",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_07082025-610?packet=true",
+        "type": "agenda"
+      },
+      {
+        "title": "BCCC Meeting Agenda February 19, 2026.",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02192026-692",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_02192026-692",
+        "type": "agenda"
+      },
+      {
+        "title": "Economic Development Authority Meeting Agenda - May 15, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05152026-725",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_05152026-725",
+        "type": "agenda"
+      },
+      {
+        "title": "Economic Development Authority Meeting Agenda - April 24, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04242026-715",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04242026-715",
+        "type": "agenda"
+      },
+      {
+        "title": "Economic Development Authority Meeting Agenda - March 20, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_03202026-706",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_03202026-706",
+        "type": "agenda"
+      },
+      {
+        "title": "Economic Development Authority Meeting Agenda - February 20, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02202026-693",
+        "type": "agenda"
+      },
+      {
+        "title": "Economic Development Authority Special Meeting Agenda - February 2, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02022026-685",
+        "type": "agenda"
+      },
+      {
+        "title": "Economic Development Authority Meeting Agenda - January 16, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01162026-681",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_01162026-681",
+        "type": "agenda"
+      },
+      {
+        "title": "Electoral Board Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01152026-680",
+        "type": "agenda"
+      },
+      {
+        "title": "Juneteenth Committee Planning Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05202026-726",
+        "type": "agenda"
+      },
+      {
+        "title": "Juneteenth Committee Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05132026-724",
+        "type": "agenda"
+      },
+      {
+        "title": "Juneteenth planning meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05062026-720",
+        "type": "agenda"
+      },
+      {
+        "title": "Juneteenth Planning Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04222026-713",
+        "type": "agenda"
+      },
+      {
+        "title": "Historic Greenfield Advisory Council meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04212026-714",
+        "type": "agenda"
+      },
+      {
+        "title": "Juneteenth Freedom Jubilee Committee Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04152026-712",
+        "type": "agenda"
+      },
+      {
+        "title": "Juneteenth committee planning meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04072026-708",
+        "type": "agenda"
+      },
+      {
+        "title": "Historic Greenfield Preservation Advisory Council Meeting Agenda 01-20-26",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01202026-682",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_01202026-682",
+        "type": "agenda"
+      },
+      {
+        "title": "Library Board of Trustees public meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05132026-722",
+        "type": "agenda"
+      },
+      {
+        "title": "Library Board of Trustees Special Called Meeting for Closed Session",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04282026-716",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04282026-716",
+        "type": "agenda"
+      },
+      {
+        "title": "Library Board of Trustees public meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04082026-709",
+        "type": "agenda"
+      },
+      {
+        "title": "Library Board of Trustees public meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02112026-689",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_02112026-689",
+        "type": "agenda"
+      },
+      {
+        "title": "Library Board of Trustees - public meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01142026-678",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_01142026-678",
+        "type": "agenda"
+      },
+      {
+        "title": "Parks and Recreation Commission Meeting - May 4th, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05042026-677",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_05042026-677",
+        "type": "agenda"
+      },
+      {
+        "title": "Parks and Recreation Commission Special Meeting - April 23rd, 2026\r\n\r\nNO AGENDA.",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04232026-718",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04232026-718",
+        "type": "agenda"
+      },
+      {
+        "title": "Parks and Recreation Commission Meeting - April 6th, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04062026-675",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_04062026-675",
+        "type": "agenda"
+      },
+      {
+        "title": "Parks and Recreation Commission Meeting - March 2nd, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_03022026-674",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_03022026-674",
+        "type": "agenda"
+      },
+      {
+        "title": "Parks and Recreation Commission Meeting - February 2nd, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02022026-673",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_02022026-673",
+        "type": "agenda"
+      },
+      {
+        "title": "Parks and Recreation Commission Meeting - January 5th, 2026",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01052026-672",
+        "type": "agenda"
+      },
+      {
+        "title": "Previous Versions",
+        "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_01052026-672",
+        "type": "agenda"
+      },
+      {
+        "title": "May 2026 Planning Commission Information Package",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05112026-721",
+        "type": "agenda"
+      },
+      {
+        "title": "Applications for upcoming public hearing.",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05112026-719?html=true",
+        "type": "agenda"
+      },
+      {
+        "title": "PDF",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05112026-719",
+        "type": "agenda"
+      },
+      {
+        "title": "Packet",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_05112026-719?packet=true",
+        "type": "agenda"
+      },
+      {
+        "title": "Applications for upcoming public hearing.",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04132026-710?html=true",
+        "type": "agenda"
+      },
+      {
+        "title": "PDF",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04132026-710",
+        "type": "agenda"
+      },
+      {
+        "title": "Packet",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04132026-710?packet=true",
+        "type": "agenda"
+      },
+      {
+        "title": "April 2026 Planning Commission Information Package",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_04132026-711",
+        "type": "agenda"
+      },
+      {
+        "title": "March 2026 Planning Commission Information Package",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_03092026-704",
+        "type": "agenda"
+      },
+      {
+        "title": "Application for upcoming public hearing.",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_03092026-695?html=true",
+        "type": "agenda"
+      },
+      {
+        "title": "PDF",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_03092026-695",
+        "type": "agenda"
+      },
+      {
+        "title": "Packet",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_03092026-695?packet=true",
+        "type": "agenda"
+      },
+      {
+        "title": "Application for upcoming public hearing.",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02092026-688?html=true",
+        "type": "agenda"
+      },
+      {
+        "title": "PDF",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02092026-688",
+        "type": "agenda"
+      },
+      {
+        "title": "Packet",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02092026-688?packet=true",
+        "type": "agenda"
+      },
+      {
+        "title": "February 2026 Planning Commission Information Package",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02092026-690",
+        "type": "agenda"
+      },
+      {
+        "title": "January 2026 Planning Commission Information Package",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01122026-679",
+        "type": "agenda"
+      },
+      {
+        "title": "Planning Commission Work Session",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01122026-676?html=true",
+        "type": "agenda"
+      },
+      {
+        "title": "PDF",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01122026-676",
+        "type": "agenda"
+      },
+      {
+        "title": "Packet",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01122026-676?packet=true",
+        "type": "agenda"
+      },
+      {
+        "title": "Applications for upcoming public hearing.",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01122026-671?html=true",
+        "type": "agenda"
+      },
+      {
+        "title": "PDF",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01122026-671",
+        "type": "agenda"
+      },
+      {
+        "title": "Packet",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01122026-671?packet=true",
+        "type": "agenda"
+      },
+      {
+        "title": "DSS Board Meeting 2/11/26 @ 9:30",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_02112026-691",
+        "type": "agenda"
+      },
+      {
+        "title": "DSS Board Meeting",
+        "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_01282026-684",
+        "type": "agenda"
+      },
+      {
+        "title": "Agendas & Minutes",
+        "url": "https://www.botetourtva.gov/AgendaCenter",
+        "type": "minutes"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1123",
+        "type": "news_alert"
+      },
+      {
+        "title": "FY 2026-2027 Budget Public Hearings Relocated to Lord Botetourt High School",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1116",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, April 28",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1115",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Parks and Recreation Commission: Special Meeting",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1114",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1113",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Launches Official Podcast: “County Conversations”",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1112",
+        "type": "news_alert"
+      },
+      {
+        "title": "TRAFFIC ALERT: Rocky Forge Wind Farm deliveries APR-MAY",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1100",
+        "type": "news_alert"
+      },
+      {
+        "title": "Budget Subcommittee Meeting Information",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1081",
+        "type": "news_alert"
+      },
+      {
+        "title": "Google Advances Botetourt County Data Center Campus Project",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1084",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt Fire & EMS Names First Assistant Chief of EMS, Health & Safety",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1083",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, March 24",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1071",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1080",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1079",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1085",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1078",
+        "type": "news_alert"
+      },
+      {
+        "title": "Solar Projects and Permits: What Residents Should Know",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1077",
+        "type": "news_alert"
+      },
+      {
+        "title": "BOCO Small Business Grant Recipients Announced",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1073",
+        "type": "news_alert"
+      },
+      {
+        "title": "Budget Subcommittee Holds First Public Meeting, Invites Community Feedback",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1067",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1070",
+        "type": "news_alert"
+      },
+      {
+        "title": "Real Estate Reassessment Cycle Moves from 4 Years to 5.",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1062",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt Supervisors Approve Engineering Studies for Orchard Lake Dam",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1061",
+        "type": "news_alert"
+      },
+      {
+        "title": "Walkthrough of Greenfield Park Comprehensive Plan Concept Drawings",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1064",
+        "type": "news_alert"
+      },
+      {
+        "title": "Board Approves Performance Agreement to Pursue Major Destination Retail Project at Gateway Crossing",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1060",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1057",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1053",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1051",
+        "type": "news_alert"
+      },
+      {
+        "title": "Greenfield Recreation Park Master Plan: Community Feedback Session and Survey",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1018",
+        "type": "news_alert"
+      },
+      {
+        "title": "Budget Development Underway for Fiscal Year 2027",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1030",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1050",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1019",
+        "type": "news_alert"
+      },
+      {
+        "title": "Buchanan Library Renovation Options",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1016",
+        "type": "news_alert"
+      },
+      {
+        "title": "New Virginia Laws Take Effect January 1st",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1015",
+        "type": "news_alert"
+      },
+      {
+        "title": "Recreation Incentive Fund - Apply Today!",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1014",
+        "type": "news_alert"
+      },
+      {
+        "title": "Board Approves Change Order Option for Emergency Communications System",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1013",
+        "type": "news_alert"
+      },
+      {
+        "title": "2026 Curbside Recycling Collection Calendars",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1012",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Monday, December 29",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1011",
+        "type": "news_alert"
+      },
+      {
+        "title": "Google Land Purchase Funds Three New Ambulances for Botetourt County Fire & EMS",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1009",
+        "type": "news_alert"
+      },
+      {
+        "title": "BOCO Grows Community Development Team",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1007",
+        "type": "news_alert"
+      },
+      {
+        "title": "Local Companies Honored for Rapid Response After Ballpark Road Washout",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1006",
+        "type": "news_alert"
+      },
+      {
+        "title": "Spring 2026: What's Changing?",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1004",
+        "type": "news_alert"
+      },
+      {
+        "title": "2026 Parks and Recreation Commission Meeting Schedule",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1003",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, December 16, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1002",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1001",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1000",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=999",
+        "type": "news_alert"
+      },
+      {
+        "title": "Law Office & Hotel Committee Meeting Postponed",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=981",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=980",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Aims for County-wide Connectivity, BEAD to provide $12.8 Million Broadband Award",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=975",
+        "type": "news_alert"
+      },
+      {
+        "title": "Watch the Botetourt County Board of Supervisors Meeting - Tuesday, November 25, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=974",
+        "type": "news_alert"
+      },
+      {
+        "title": "County Finalizes Review, Issues Rankings for Orchard Lake Dam Proposals",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=971",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=970",
+        "type": "news_alert"
+      },
+      {
+        "title": "Planning Commission Meeting - Canceled for Monday, Dec. 8",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=967",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Appoints Kyle Rosner as Director of Economic  Development",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=965",
+        "type": "news_alert"
+      },
+      {
+        "title": "Investigation Determines Cause of September Fire at Troutville Fire Training Center",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=963",
+        "type": "news_alert"
+      },
+      {
+        "title": "Watch the Botetourt County Board of Supervisors Meeting - Tuesday, October 28, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=885",
+        "type": "news_alert"
+      },
+      {
+        "title": "Governor Youngkin Announces $270 Million Investment to Improve I-81 S-Curve in Botetourt County",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=937",
+        "type": "news_alert"
+      },
+      {
+        "title": "Updated fee schedules for Development, Planning & Zoning Services, effective Nov. 1",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=935",
+        "type": "news_alert"
+      },
+      {
+        "title": "Planning Commission Meeting - Tuesday, October 14, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=867",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=933",
+        "type": "news_alert"
+      },
+      {
+        "title": "Community Feedback Sessions Scheduled to Help Shape Botetourt's Comprehensive Plan",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=932",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Department of Social Services Board Meeting",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=890",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Seeks Evaluation of Orchard Lake Dam Alternatives",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=929",
+        "type": "news_alert"
+      },
+      {
+        "title": "Matthew Dewhirst Named New Deputy Chief of Botetourt County Fire & EMS",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=928",
+        "type": "news_alert"
+      },
+      {
+        "title": "Committee Named to Oversee Replica of Breckinridge Law Office, Hotel",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=927",
+        "type": "news_alert"
+      },
+      {
+        "title": "Board Takes No Action On Orchard Lake Service District Proposal, Moves Forward with Grant",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=926",
+        "type": "news_alert"
+      },
+      {
+        "title": "Agreements with Western Virginia Water Authority Secure Long-Term Water Needs for Botetourt County",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=921",
+        "type": "news_alert"
+      },
+      {
+        "title": "\"Give Me Liberty: Virginia & The Forging of a Nation\" is now on display!",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=894",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=891",
+        "type": "news_alert"
+      },
+      {
+        "title": "Munters Breaks Ground on Phase II",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=888",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, December 16, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=887",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, November 25, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=886",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, September 23, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=884",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, August 26, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=883",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, July 22, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=882",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Department of Social Services Board Meeting",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=875",
+        "type": "news_alert"
+      },
+      {
+        "title": "Google Purchases Land for Potential Data Center in Botetourt County",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=871",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, June 24, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=872",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=870",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=869",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Department of Social Services Board Meeting",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=857",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, May 27, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=854",
+        "type": "news_alert"
+      },
+      {
+        "title": "Building Safety Month Training Is a Huge Success Right Here in Botetourt County!",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=852",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=845",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Department of Social Services Board Meeting",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=844",
+        "type": "news_alert"
+      },
+      {
+        "title": "Planning Commission Meeting - Monday, May 12, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=843",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Budget Sub-Committee Meeting - PUBLIC NOTICE",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=842",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Celebrates Building Safety Month",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=828",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Approves FY26 Budget With No Tax Rate Increase",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=827",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=826",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday,  April 22, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=825",
+        "type": "news_alert"
+      },
+      {
+        "title": "BCCC Meeting - April 17, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=818",
+        "type": "news_alert"
+      },
+      {
+        "title": "Electoral Board Meeting",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=815",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=809",
+        "type": "news_alert"
+      },
+      {
+        "title": "Planning Commission Meeting - Monday, April 14, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=808",
+        "type": "news_alert"
+      },
+      {
+        "title": "Notice of Proposed County Budget Public Hearing - April 9, 2025 at 6pm",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=805",
+        "type": "news_alert"
+      },
+      {
+        "title": "Getting to Know BOCO - March Recap",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=806",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Announces Business Expansion at Greenfield",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=804",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Board of Supervisors Meeting - Tuesday, March 25, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=803",
+        "type": "news_alert"
+      },
+      {
+        "title": "Economic Development Authority Public Meeting Notice",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=802",
+        "type": "news_alert"
+      },
+      {
+        "title": "Disclosure of Unnoticed Budget Subcommittee Meeting, March 19, 2025",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=801",
+        "type": "news_alert"
+      },
+      {
+        "title": "Botetourt County Introduces “Let’s Go BOCO” – Your Ultimate Guide to Outdoor Adventures",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=790",
+        "type": "news_alert"
+      },
+      {
+        "title": "SCAM ALERT from the Botetourt County Treasurer's Office",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=799",
+        "type": "news_alert"
+      },
+      {
+        "title": "Region 2 Takes Home Merit Region of the Year Award!",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=795",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=791",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=763",
+        "type": "news_alert"
+      },
+      {
+        "title": "Read on...",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=762",
+        "type": "news_alert"
+      },
+      {
+        "title": "View All News",
+        "url": "https://www.botetourtva.gov/CivicAlerts.aspx?CID=1",
+        "type": "news_alert"
+      },
+      {
+        "title": "Skip to Main Content",
+        "url": "https://www.botetourtva.gov/814/Legal-Public-Notices#ccf27d8841-3582-4231-bbc6-80f9c347497b",
+        "type": "public_notice"
+      },
+      {
+        "title": "Legal & Public Notices",
+        "url": "https://www.botetourtva.gov/814/Legal-Public-Notices",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOTETOURT COUNTY LEGAL ADVERTISEMENT - NOTICE OF WHERE LEGAL ADS WILL BE PUBLISHED.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/5241/BOTETOURT-COUNTY-LEGAL-ADVERTISEMENT---NOTICE-OF-WHERE-LEGAL-ADS-WILL-BE-PUBLISHEDpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "2025.04.22 Legal Advertisement - Employees Bonus.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/5212/20250422-Legal-Advertisement---Employees-Bonuspdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Planning Commission March 2025 legal ads.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/5110/Planning-Commission-March-2025-legal-adspdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOS Legal Advertisement - Lucas Rezoning Hodge Special Exception Permit March 5 2025.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/5111/BOS-Legal-Advertisement---Lucas-Rezoning-Hodge-Special-Exception-Permit-March-5-2025pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO BOS Legal Advertisement - battery storage facility March 5 2025.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/5112/BOCO-BOS-Legal-Advertisement---battery-storage-facility-March-5-2025pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO Planning Commission Legal Ad February 2025.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/5113/BOCO-Planning-Commission-Legal-Ad-February-2025pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO Planning Commission Legal Ad December 2024.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/5114/BOCO-Planning-Commission-Legal-Ad-December-2024pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO Legal Advertisement 11-26-24 Board of Supervisor Public Hearing.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4917/BOCO-Legal-Advertisement-11-26-24-Board-of-Supervisor-Public-Hearingpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO Planning Commission and BOS Joint Meeting Legal Ad 11-13-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4916/BOCO-Planning-Commission-and-BOS-Joint-Meeting-Legal-Ad-11-13-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "October 2024 BOCO Board of Supervisors Public Hearing Legal Ad.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4865/October-2024-BOCO-Board-of-Supervisors-Public-Hearing-Legal-Adpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "September 2024 Planning Commission Legal Ad.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4864/September-2024-Planning-Commission-Legal-Adpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Eagle Rock Legal Ad Public Comment Period for 72 Railroad Avenue.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4866/Eagle-Rock-Legal-Ad-Public-Comment-Period-for-72-Railroad-Avenuepdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "July 2024 Planning Commission legal ad.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4463/July-2024-Planning-Commission-legal-adpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "AD Tax Ordinance Amendments 6-25-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4433/AD-Tax-Ordinance-Amendments-6-25-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "NOTICE OF PROPOSED REAL PROPERTY TAX INCREASE 06-12-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4416/NOTICE-OF-PROPOSED-REAL-PROPERTY-TAX-INCREASE-06-12-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE Tax Ordinance Amendments 06-12-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4417/LEGAL-NOTICE-Tax-Ordinance-Amendments-06-12-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE FY25 Advertised Budget - Final 5-31-24 for June 12 public hearing.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4418/LEGAL-NOTICE-FY25-Advertised-Budget---Final-5-31-24-for-June-12-public-hearingpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "June 2024 legal ad Planning Commission.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4415/June-2024-legal-ad-Planning-Commissionpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "AD DSS Ordinance 5-28-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4407/AD-DSS-Ordinance-5-28-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO Legal Ad- Board of Equalization hearings 2024.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4289/BOCO-Legal-Ad--Board-of-Equalization-hearings-2024pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Legal AD Public Hearing 04-23-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4287/Legal-AD-Public-Hearing-04-23-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Legal AD Public Hearing electronic messge signs 4-23-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4286/Legal-AD-Public-Hearing-electronic-messge-signs-4-23-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL AD Public Hearing VDOT 6 Year Plan .pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4285/LEGAL-AD-Public-Hearing-VDOT-6-Year-Plan-pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL AD Board of Equalization 4-9-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4277/LEGAL-AD-Board-of-Equalization-4-9-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "April 2024 Planning Commission Legal Ad.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4272/April-2024-Planning-Commission-Legal-Adpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Botetourt Legal AD Board of Equalization Public Hearing 2-27-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4207/Botetourt-Legal-AD-Board-of-Equalization-Public-Hearing-2-27-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOS Legal AD 02-27-24.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4206/BOS-Legal-AD-02-27-24pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL AD BOCO Board of Supervisors Public Hearings 1-23-24",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4148/LEGAL-AD-BOCO-Board-of-Supervisors-Public-Hearings-1-23-24",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE - January 2024 Planning Commission.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4076/LEGAL-NOTICE---January-2024-Planning-Commissionpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Dec 2023 legal ads Planning Commission.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4031/Dec-2023-legal-ads-Planning-Commissionpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "AD Public Hearing Deed of Easement Segra 10-24-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3997/AD-Public-Hearing-Deed-of-Easement-Segra-10-24-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO Planning Commission Legal Ad 10-10-2023.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3977/BOCO-Planning-Commission-Legal-Ad-10-10-2023pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BZA Legal Ad 10-10-2023.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3975/BZA-Legal-Ad-10-10-2023pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE - BOCO Planning Commission Meeting Agenda 9-11-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3933/LEGAL-NOTICE---BOCO-Planning-Commission-Meeting-Agenda-9-11-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE - Public Safety Radio System for 08/22/23",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3839/LEGAL-NOTICE---Public-Safety-Radio-System-for-082223",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE - Botetourt County Board of Supervisors Meeting for 8/22/23",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3840/LEGAL-NOTICE---Botetourt-County-Board-of-Supervisors-Meeting-for-82223",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE NOTICE OF PUBLIC HEARINGS OF THE BOTETOURT COUNTY PLANNING COMMISSION 8-14-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3824/LEGAL-NOTICE-NOTICE-OF-PUBLIC-HEARINGS-OF-THE-BOTETOURT-COUNTY-PLANNING-COMMISSION-8-14-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE BOCO Planning Commission Public Hearing 7-10-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3733/LEGAL-NOTICE-BOCO-Planning-Commission-Public-Hearing-7-10-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "NOTICE OF A PUBLIC HEARING OF THE BOTETOURT COUNTY BOARD OF ZONING APPEALS 7-11-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3732/NOTICE-OF-A-PUBLIC-HEARING-OF-THE-BOTETOURT-COUNTY-BOARD-OF-ZONING-APPEALS-7-11-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE Public Hearing VDOT Six Year Plan 062723.pdf.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3723/LEGAL-NOTICE-Public-Hearing-VDOT-Six-Year-Plan-062723pdfpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE  Public Hearing  Animal Shelter Agreement 062723.pdf.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3724/LEGAL-NOTICE--Public-Hearing--Animal-Shelter-Agreement-062723pdfpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE 6PM Public Hearings 062723.pdf.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3725/LEGAL-NOTICE-6PM-Public-Hearings-062723pdfpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE Public Hearing WVWA 062723.pdf.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3726/LEGAL-NOTICE-Public-Hearing-WVWA-062723pdfpdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Legal Notice FY24 PH Advertised Budget Tax Levy",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3671/Legal-Notice-FY24-PH-Advertised-Budget-Tax-Levy",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO Planning Commission Legal Ad June 2023.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3655/BOCO-Planning-Commission-Legal-Ad-June-2023pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO BOS public hearing ad 5-23-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3650/BOCO-BOS-public-hearing-ad-5-23-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BOCO BOS Public Hearing Legal Ad Johnson vacate 05-23-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3649/BOCO-BOS-Public-Hearing-Legal-Ad-Johnson-vacate-05-23-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "LEGAL NOTICE - Botetourt County Public Hearing 4-25-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3393/LEGAL-NOTICE---Botetourt-County-Public-Hearing-4-25-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Legal Ad Botetourt County Board of Supervisors C-PACE 04.25.23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3394/Legal-Ad-Botetourt-County-Board-of-Supervisors-C-PACE-042523pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "BZA Legal Ad 3-29-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3331/BZA-Legal-Ad-3-29-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Public Notice Ad 3-28-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3346/Public-Notice-Ad-3-28-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Planning Commission Legal Ad 3-22-23.pdf",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3332/Planning-Commission-Legal-Ad-3-22-23pdf",
+        "type": "public_notice"
+      },
+      {
+        "title": "Planning Commission Legal Ad 3-13-23",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3309/Planning-Commission-Legal-Ad-3-13-23",
+        "type": "public_notice"
+      },
+      {
+        "title": "Botetourt County Budget Subcommittee Meeting Notices 2023",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3311/Botetourt-County-Budget-Subcommittee-Meeting-Notices-2023",
+        "type": "public_notice"
+      },
+      {
+        "title": "Legal Notice Board of Supervisors Meeting 02.28.23",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3302/Legal-Notice-Board-of-Supervisors-Meeting-022823",
+        "type": "public_notice"
+      },
+      {
+        "title": "Public Hearing Public Notice 02.28.23",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/3303/Public-Hearing-Public-Notice-022823",
+        "type": "public_notice"
+      },
+      {
+        "title": "County Code",
+        "url": "https://library.municode.com/va/botetourt_county/codes/code_of_ordinances",
+        "type": "public_notice"
+      },
+      {
+        "title": "2025 Annual Comprehensive Financial Report (ACFR)",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/6264/Botetourt-County-FY25-Annual-Comprehensive-Financial-Report",
+        "type": "budget_document"
+      },
+      {
+        "title": "2024 Annual Comprehensive Financial Report (ACFR)",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4973",
+        "type": "budget_document"
+      },
+      {
+        "title": "2023 Annual Comprehensive Financial Report (ACFR)",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/4043/Botetourt-Financial-Report-2023",
+        "type": "budget_document"
+      },
+      {
+        "title": "2022 Annual Comprehensive Financial Report (ACFR)",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/6265/Botetourt-County-FY2022-Annual-Comprehensive-Financial-Report",
+        "type": "budget_document"
+      },
+      {
+        "title": "2021 Annual Comprehensive Financial Report (ACFR)",
+        "url": "https://www.botetourtva.gov/DocumentCenter/View/1108/FY21-Botetourt-County-ACFR---Financial-Report",
+        "type": "budget_document"
+      },
+      {
+        "title": "Prior Year ACFRs",
+        "url": "https://www.botetourtva.gov/Archive.aspx?AMID=53",
+        "type": "budget_document"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-05-16T08:21:57+00:00",
     "new_count": 277,
     "items": [
