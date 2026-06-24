@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T10:08:31+00:00",
+  "generated_at": "2026-06-24T09:54:38+00:00",
   "officials": [
     {
       "name": "Steve Clinton",
@@ -107,6 +107,12 @@
     {
       "title": "Board of Supervisors Regular Meeting",
       "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_06232026-740",
+      "type": "agenda",
+      "source": "Agenda Center"
+    },
+    {
+      "title": "Previous Versions",
+      "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_06232026-740",
       "type": "agenda",
       "source": "Agenda Center"
     },
@@ -335,6 +341,18 @@
     {
       "title": "Previous Versions",
       "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_02192026-692",
+      "type": "agenda",
+      "source": "Agenda Center"
+    },
+    {
+      "title": "Economic Development Authority Meeting Agenda - June 26, 2026",
+      "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_06262026-741",
+      "type": "agenda",
+      "source": "Agenda Center"
+    },
+    {
+      "title": "Previous Versions",
+      "url": "https://www.botetourtva.gov/AgendaCenter/PreviousVersions/_06262026-741",
       "type": "agenda",
       "source": "Agenda Center"
     },
@@ -845,6 +863,12 @@
     {
       "title": "Botetourt Courthouse \"Topping Off\" Ceremony Planned for June 26th",
       "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1130",
+      "type": "news_alert",
+      "source": "botetourtva.gov"
+    },
+    {
+      "title": "County Provides Update on Eagle Rock Property Cleanup and Flood Mitigation Project",
+      "url": "https://www.botetourtva.gov/CivicAlerts.aspx?AID=1138",
       "type": "news_alert",
       "source": "botetourtva.gov"
     },
@@ -1925,225 +1949,211 @@
   ],
   "events": [
     {
-      "title": "WBSC Slow Pitch Senior World Cup",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7545&month=6&year=2026&day=23&calType=0",
-      "source": "botetourtva.gov Calendar",
-      "body": null,
-      "date": "2026-06-23"
-    },
-    {
-      "title": "Board of Supervisors Regular Meeting",
-      "date": "2026-06-23",
-      "url": "https://www.botetourtva.gov/AgendaCenter/ViewFile/Agenda/_06232026-740",
-      "body": "Board of Supervisors",
-      "source": "AgendaCenter"
-    },
-    {
       "title": "BOCO Offices & Libraries Closed in Observance of Juneteenth",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7313&month=6&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7313&month=6&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Juneteenth Committee",
       "date": "2026-06-26"
     },
     {
       "title": "Economic Development Authority Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7327&month=6&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7327&month=6&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Economic Development Authority",
       "date": "2026-06-26"
     },
     {
       "title": "Blue Ridge Friends of the Library Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7178&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7178&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-07-02"
     },
     {
       "title": "Library Closed for Independence Day",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7157&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7157&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-07-02"
     },
     {
       "title": "BCCC Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7386&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7386&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "BCCC",
       "date": "2026-07-03"
     },
     {
       "title": "Buchanan Friends of the Library Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7216&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7216&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-07-03"
     },
     {
       "title": "Parks & Recreation Commission Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2438&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2438&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-07-06"
     },
     {
       "title": "Yoga Class for beginners at Blue Ridge Library",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7564&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7564&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-07-06"
     },
     {
       "title": "Library Board of Trustees Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7341&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7341&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Library Board of Trustees",
       "date": "2026-07-07"
     },
     {
       "title": "Botetourt County Social Services Board Meetings",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7434&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7434&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Social Services Board",
       "date": "2026-07-08"
     },
     {
       "title": "Social Services Board Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=5947&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=5947&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Social Services Board",
       "date": "2026-07-08"
     },
     {
       "title": "Fincastle Friends of the Library Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7170&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7170&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-07-13"
     },
     {
       "title": "Planning Commission",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2387&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2387&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Planning Commission",
       "date": "2026-07-13"
     },
     {
       "title": "Board of Zoning Appeals",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7287&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7287&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Board of Zoning Appeals",
       "date": "2026-07-14"
     },
     {
       "title": "BOCO Offices & Libraries Closed in Observance of Independence Day",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7314&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7314&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-07-14"
     },
     {
       "title": "Historic Greenfield Advisory Council",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7513&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7513&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Historic Greenfield Advisory Council",
       "date": "2026-07-21"
     },
     {
       "title": "Board of Supervisors",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7301&month=7&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7301&month=7&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Board of Supervisors",
       "date": "2026-07-28"
     },
     {
       "title": "Parks & Recreation Commission Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2439&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2439&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-08-03"
     },
     {
       "title": "Yoga for Beginners at Eagle Rock Library",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7577&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7577&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-08-03"
     },
     {
       "title": "Buchanan Friends of the Library Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7217&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7217&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-08-04"
     },
     {
       "title": "Blue Ridge Friends of the Library Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7179&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7179&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": null,
       "date": "2026-08-04"
     },
     {
       "title": "Library Board of Trustees Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7342&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7342&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Library Board of Trustees",
       "date": "2026-08-06"
     },
     {
       "title": "Planning Commission",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2388&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=2388&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Planning Commission",
       "date": "2026-08-10"
     },
     {
       "title": "Board of Zoning Appeals",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7288&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7288&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Board of Zoning Appeals",
       "date": "2026-08-11"
     },
     {
       "title": "BCCC Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7387&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7387&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "BCCC",
       "date": "2026-08-11"
     },
     {
       "title": "Botetourt County Social Services Board Meetings",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7435&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7435&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Social Services Board",
       "date": "2026-08-12"
     },
     {
       "title": "Social Services Board Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=5948&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=5948&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Social Services Board",
       "date": "2026-08-12"
     },
     {
       "title": "Historic Greenfield Advisory Council",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7514&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7514&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Historic Greenfield Advisory Council",
       "date": "2026-08-18"
     },
     {
       "title": "Economic Development Authority Meeting",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7329&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7329&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Economic Development Authority",
       "date": "2026-08-21"
     },
     {
       "title": "Board of Supervisors",
-      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7302&month=8&year=2026&day=23&calType=0",
+      "url": "https://www.botetourtva.gov/Calendar.aspx?EID=7302&month=8&year=2026&day=24&calType=0",
       "source": "botetourtva.gov Calendar",
       "body": "Board of Supervisors",
       "date": "2026-08-25"
